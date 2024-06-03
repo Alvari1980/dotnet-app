@@ -28,11 +28,6 @@ app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1")
 //app.MapGet("/hello", () => "Hello, Anatoliy!");
 //app.MapGet("/test", () => "This is Test GET");
 
-
-//app.MapControllers();
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapControllers();
 
 app.Run();
