@@ -2,6 +2,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Check for the presence of the PORT environment variable
 var port = Environment.GetEnvironmentVariable("PORT");
+
 if (string.IsNullOrEmpty(port))
 {
     port = "8080"; // Default port if PORT environment variable is not set
