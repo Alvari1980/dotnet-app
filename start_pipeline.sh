@@ -1,5 +1,8 @@
 #!/bin/bash
 
+git commit -am "new version"
+git push
+
 # Ensure the runs directory is in the PATH
 export PATH="${PATH}:/tmp/runs"
 
