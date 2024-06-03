@@ -6,6 +6,8 @@ namespace my_app.Service.Controllers
     [Route("[controller]")]
     public class HelloController : ControllerBase
     {
+        static HttpClient client = new HttpClient();
+
         [HttpGet]
         [Route("hello")]
         public IActionResult GetHello()
@@ -19,5 +21,19 @@ namespace my_app.Service.Controllers
         {
             return Ok("Test success");
         }
+
+        [HttpGet]
+        [Route("externalcall")]
+        public async Task<IActionResult> ExternalCall()
+        {
+            const string url = "https://dotnet-app-user6-user6-application.apps.cluster-5shjw.dynamic.redhatworkshops.io/Hello/hello";
+
+            HttpResponseMessage response = await client.GetAsync(url);
+
+            response.EnsureSuccessStatusCode();
+
+            return Ok(response.Content.ReadAsStringAsync());
+        }
+
     }
 }
