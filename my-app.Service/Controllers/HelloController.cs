@@ -12,5 +12,12 @@ namespace my_app.Service.Controllers
         {
             return Ok("Hello, World!");
         }
+
+        [HttpGet]
+        [Route("test")]
+        public IActionResult GetTest()
+        {
+            return Ok("Test success");
+        }
     }
 }
