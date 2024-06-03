@@ -26,14 +26,20 @@ namespace my_app.Service.Controllers
         [Route("externalcall")]
         public async Task<IActionResult> ExternalCall()
         {
-            const string url = "https://dotnet-app-user6-user6-application.apps.cluster-5shjw.dynamic.redhatworkshops.io/Hello/hello";
+            const string url = "https://dotnet-app-user6-user6-application.apps.cluster-5shjw.dynamic.redhatworkshops.io/Hello/hello4";
 
-            HttpResponseMessage response = await client.GetAsync(url);
+           try{
+ HttpResponseMessage response = await client.GetAsync(url);
 
             response.EnsureSuccessStatusCode();
 
             return Ok(response.Content.ReadAsStringAsync());
-        }
 
+           }
+           catch(Exception ex)
+           {
+            return Ok(ex.Message);
+           }
+        }
     }
 }
